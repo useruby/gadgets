@@ -18,6 +18,7 @@ describe GadgetsController do
 
         3.times {FactoryGirl.create :gadget, user_id: user.id}
         2.times {FactoryGirl.create :gadget, user_id: another_user.id}
+        FactoryGirl.create :gadget, name: 'Leica M2', user_id: user.id
 
         sign_in user
       end
@@ -48,6 +49,20 @@ describe GadgetsController do
         
         expect(response).to be_ok
         expect(response.body).to match(/<div class="gadget_list_mode">/)
+      end
+
+      it 'should display list of gadgets with name start with Leica' do
+        get :index, filter: 'Leica'
+
+        expect(response).to be_ok
+        assigns[:gadgets].each {|gadget| expect(gadget.name).to be_start_with 'Leica'}
+      end
+
+      it 'should display all the gadgets that user have if filter is not set' do
+        get :index
+
+        expect(response).to be_ok
+        expect(assigns[:gadgets].size).to eq 4
       end
     end
   end
