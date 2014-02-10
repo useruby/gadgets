@@ -3,3 +3,7 @@
 
 en:
   hello: "Hello world"
+  home:
+    index: 
+      sign_in: 'Sign In'
+      sign_up: 'Sign Up'
