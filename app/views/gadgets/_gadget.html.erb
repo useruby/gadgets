@@ -1,0 +1,12 @@
+<% if params[:mode] == 'list_mode' %>
+  <div class="gadget_list_mode">
+    <span><%= gadget.name %></span>
+    <span><%= gadget.name %></span>
+  </div>
+<% elsif params[:mode] == 'cover_flow' || !params[:mode] %>
+  <div class="gadget_cover_flow">
+    <%# TODO add gadget image here %>
+    <div><%= gadget.name %></div>
+  </div>
+<% end %>
+
