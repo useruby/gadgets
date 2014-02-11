@@ -9,3 +9,7 @@ en:
   gadgets:
     filter:
       search: Search
+    new:
+      create_gadget: Add new gadget
+    index:
+      add_new_gadget_lnk: Add new gadget

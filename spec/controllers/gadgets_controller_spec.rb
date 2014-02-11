@@ -66,4 +66,32 @@ describe GadgetsController do
       end
     end
   end
+
+  describe 'GET #new' do
+    it 'should display form for creating a new gadget' do
+      sign_in user
+
+      get :new
+
+      expect(response).to be_ok
+    end
+  end
+
+  describe 'POST #create' do
+    it 'should add a new gadget' do
+      sign_in user
+
+      expect{
+        post :create, gadget: {name: 'Raspberry PI', description: 'small and cheap computer'}
+      }.to change(Gadget, :count).by(1)
+    end
+
+    it 'should redirect to list of gadget page after create' do
+      sign_in user
+
+      post :create, gadget: {name: 'Raspberry PI', description: 'small and cheap computer'}
+      
+      expect(response).to redirect_to gadgets_path
+    end
+  end
 end
