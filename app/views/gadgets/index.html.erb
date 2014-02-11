@@ -1,3 +1,19 @@
 <%= render 'filter' %>
+
+<div id='view_mode'>
+  <% if !params[:mode] || params[:mode] == 'cover_flow' %>
+    <span class="active"><%= t('.cover_flow') %></span> | 
+    <span>
+      <%= link_to t('.list_mode'), gadgets_path(mode: 'list_mode', gadget: {filter: params[:gadget].try(:[], :filter)})  %>
+    </span>
+  <% else %>
+    <span>
+      <%= link_to t('.cover_flow'), gadgets_path(mode: 'cover_flow', gadget: {filter: params[:gadget].try(:[], :filter)})  %>
+    </span> | 
+    <span class="active"><%= t('.list_mode') %></span>
+  <% end %>
+</div>
+
 <%= link_to t('.add_new_gadget_lnk'), new_gadget_path %>
+
 <%= render @gadgets %>

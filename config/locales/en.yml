@@ -16,3 +16,5 @@ en:
       create_gadget: Add new gadget
     index:
       add_new_gadget_lnk: Add new gadget
+      cover_flow: Cover Flow
+      list_mode: List Mode
