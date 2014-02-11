@@ -93,5 +93,22 @@ describe GadgetsController do
       
       expect(response).to redirect_to gadgets_path
     end
+
+    it 'should not be possible to create new gadget if name is not set' do
+      sign_in user
+
+      expect{
+        post :create, gadget: {name: '', description: 'description for gadget'}
+      }.to_not change(Gadget, :count).by(1)
+    end
+
+    it 'should display new gadget form with error if gadget is not created' do
+      sign_in user
+
+      post :create, gadget: {name: '', description: 'description for gadget'}
+
+      expect(response).to render_template :new
+      expect(response.body).to match(/can't be blank/)
+    end
   end
 end
