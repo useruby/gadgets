@@ -7,8 +7,8 @@ class GadgetsController < InheritedResources::Base
   end
 
   def collection
-    if params[:filter]
-      @gadgets ||= end_of_association_chain.search(params[:filter])
+    if params[:gadget].try(:[], :filter)
+      @gadgets ||= end_of_association_chain.filter_by_name(params[:gadget][:filter])
     else
       super
     end

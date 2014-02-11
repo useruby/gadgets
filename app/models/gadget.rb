@@ -1,5 +1,5 @@
 class Gadget < ActiveRecord::Base
   attr_accessible :name, :description
 
-  scope :search, ->(query){where("name ILIKE '#{query}%'")}
+  scope :filter_by_name, ->(name){where("name ILIKE '#{name}%'")}
 end

@@ -52,7 +52,7 @@ describe GadgetsController do
       end
 
       it 'should display list of gadgets with name start with Leica' do
-        get :index, filter: 'Leica'
+        get :index, gadget: {filter: 'Leica'}
 
         expect(response).to be_ok
         assigns[:gadgets].each {|gadget| expect(gadget.name).to be_start_with 'Leica'}
