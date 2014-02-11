@@ -1,6 +1,16 @@
 require 'spec_helper'
 
 describe Gadget do
+  context 'validation' do
+    it 'should be invalid if name is empty' do
+      expect(FactoryGirl.build :gadget, name: '').to be_invalid
+    end
+
+    it 'should be valid if name is not empty' do
+      expect(FactoryGirl.build :gadget, name: 'Gadget').to be_valid
+    end
+  end
+
   describe '.filter_by_name' do
     before :each do
       FactoryGirl.create :gadget, name: 'Leica M2'
