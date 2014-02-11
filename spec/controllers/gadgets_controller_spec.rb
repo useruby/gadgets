@@ -110,5 +110,15 @@ describe GadgetsController do
       expect(response).to render_template :new
       expect(response.body).to match(/can't be blank/)
     end
+
+    it 'should create new gadget and attach image to it' do
+      sign_in user
+
+      gadget_image = fixture_file_upload('spec/fixtures/images/leica_m2.jpg', 'image/jpeg')
+   
+      post :create, gadget: {name: 'Leica M2', image: gadget_image}
+    
+      expect(user.gadgets.last.image.url).to be_end_with 'leica_m2.jpg'
+    end
   end
 end

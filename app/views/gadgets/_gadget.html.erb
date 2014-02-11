@@ -5,7 +5,7 @@
   </div>
 <% else %>
   <div class="gadget_cover_flow">
-    <%# TODO add gadget image here %>
+    <div><%= image_tag gadget.image.thumb.url %></div>
     <div><%= gadget.name %></div>
   </div>
 <% end %>

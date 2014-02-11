@@ -1,5 +1,6 @@
 <%= simple_form_for @gadget do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
+  <%= f.file_field  :image %>
   <%= f.submit t('.create_gadget') %>
 <% end %>
