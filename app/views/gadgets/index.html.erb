@@ -1,19 +1,25 @@
-<%= render 'filter' %>
+<div class="row-fluid">
+  <div class="span4">
+    <%= render 'filter' %>
+  </div>
 
-<div id='view_mode'>
-  <% if !params[:mode] || params[:mode] == 'cover_flow' %>
-    <span class="active"><%= t('.cover_flow') %></span> | 
-    <span>
-      <%= link_to t('.list_mode'), gadgets_path(mode: 'list_mode', gadget: {filter: params[:gadget].try(:[], :filter)})  %>
-    </span>
-  <% else %>
-    <span>
-      <%= link_to t('.cover_flow'), gadgets_path(mode: 'cover_flow', gadget: {filter: params[:gadget].try(:[], :filter)})  %>
-    </span> | 
-    <span class="active"><%= t('.list_mode') %></span>
-  <% end %>
+  <div id='view_mode' class="btn-group span4">
+    <% if !params[:mode] || params[:mode] == 'cover_flow' %>
+      <span class="active btn"><%= t('.cover_flow') %></span>
+      <span class="btn">
+        <%= link_to t('.list_mode'), gadgets_path(mode: 'list_mode', gadget: {filter: params[:gadget].try(:[], :filter)}) %>
+      </span>
+    <% else %>
+      <span class="btn">
+        <%= link_to t('.cover_flow'), gadgets_path(mode: 'cover_flow', gadget: {filter: params[:gadget].try(:[], :filter)}) %>
+      </span>
+      <span class="active btn"><%= t('.list_mode') %></span>
+    <% end %>
+  </div>
 </div>
 
-<%= link_to t('.add_new_gadget_lnk'), new_gadget_path %>
+<ul class="<%= !params[:mode] || params[:mode] == 'cover_flow' ? 'thumbnails' : 'unstyled' %>">
+  <%= render @gadgets %>
+</ul>
 
-<%= render @gadgets %>
+<%= link_to t('.add_new_gadget_lnk'), new_gadget_path, class: 'btn' %>

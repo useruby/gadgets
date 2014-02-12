@@ -1,12 +1,12 @@
 <% if params[:mode] == 'list_mode' %>
-  <div class="gadget_list_mode">
+  <li class="gadget_list_mode">
     <span><%= gadget.name %></span>
     <span><%= gadget.name %></span>
-  </div>
+  </li>
 <% else %>
-  <div class="gadget_cover_flow">
+  <li class="thumbnail gadget_cover_flow">
     <div><%= image_tag gadget.image.thumb.url %></div>
-    <div><%= gadget.name %></div>
-  </div>
+    <div class="caption"><%= gadget.name %></div>
+  </li>
 <% end %>
 

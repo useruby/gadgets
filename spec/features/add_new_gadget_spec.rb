@@ -33,6 +33,6 @@ feature 'Add new gadget' do
 
     expect(current_path).to eq gadgets_path
 
-    expect(body).to have_selector 'div.field_with_errors.gadget_name'
+    expect(body).to have_selector 'div.error.gadget_name'
   end
 end

@@ -4,6 +4,7 @@
 en:
   layouts:
     application:
+      brand: Gadgets - test application
       sign_out: Sign Out
   home:
     index: 

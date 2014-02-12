@@ -1,4 +1,4 @@
-<%= simple_form_for Gadget.new, url: gadgets_path(mode: params[:mode]), method: :get  do |f| %>
-  <%= f.input_field :filter, value: params[:gadget].try(:[], :filter) %>
-  <%= f.submit t('.search') %>
+<%= simple_form_for Gadget.new, url: gadgets_path(mode: params[:mode]), method: :get, class: 'form-search'  do |f| %>
+  <%= f.input_field :filter, value: params[:gadget].try(:[], :filter), class: 'search-query' %>
+  <%= f.submit t('.search'), class: 'btn'  %>
 <% end %>

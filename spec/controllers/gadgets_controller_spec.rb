@@ -34,21 +34,21 @@ describe GadgetsController do
         get :index
 
         expect(response).to be_ok
-        expect(response.body).to match(/<div class="gadget_cover_flow">/)
+        expect(response.body).to match(/<li class="thumbnail gadget_cover_flow">/)
       end
 
       it 'should display list of gadgets in cover flow mode' do
         get :index, mode: 'cover_flow'
         
         expect(response).to be_ok
-        expect(response.body).to match(/<div class="gadget_cover_flow">/)
+        expect(response.body).to match(/<li class="thumbnail gadget_cover_flow">/)
       end
 
       it 'should display list of gadgets in list mode' do
         get :index, mode: 'list_mode'
         
         expect(response).to be_ok
-        expect(response.body).to match(/<div class="gadget_list_mode">/)
+        expect(response.body).to match(/<li class="gadget_list_mode">/)
       end
 
       it 'should display list of gadgets with name start with Leica' do

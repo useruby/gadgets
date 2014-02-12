@@ -7,11 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete if user_signed_in? %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <%# -- Navigation bar -- %>
+  <div class="container navbar">
+    <div class="brand">
+      <%= link_to t('.brand'), root_path %>
+    </div>
+    <% if user_signed_in? %>
+      <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class: 'btn' %>
+    <% end %>
+  </div>
+  <%# -- Navigation bar -- %>
+  
+  <div class="container">
+    <p class="notice alert-info"><%= notice %></p>
+    <p class="alert-danger"><%= alert %></p>
 
-  <%= yield %>
-
+    <%= yield %>
+  </div>
 </body>
 </html>
