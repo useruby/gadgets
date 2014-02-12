@@ -14,3 +14,4 @@
 /config/database.yml
 /spec/support/uploads
 /public/uploads
+/db/*.sqlite3
