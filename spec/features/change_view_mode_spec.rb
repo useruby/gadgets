@@ -22,7 +22,7 @@ feature 'Change view mode for list of gadgets' do
     click_on 'Cover Flow'
 
     expect(body).to have_selector 'span.active[text()="Cover Flow"]'
-    expect(body).to have_selector 'img[alt="Thumb_blank_gadget"]'
+    expect(body).to have_selector 'img[alt="Thumb blank gadget"]'
   end
 end
 

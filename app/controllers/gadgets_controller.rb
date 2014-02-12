@@ -17,4 +17,8 @@ class GadgetsController < InheritedResources::Base
       super
     end
   end
+
+  def build_resource_params
+    [params.fetch(:gadget, {}).permit(:name, :description, :image)]
+  end
 end

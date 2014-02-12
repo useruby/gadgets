@@ -25,7 +25,7 @@ feature 'Add new gadget' do
 
     expect(current_path).to eq gadgets_path
 
-    expect(body).to have_selector 'img[alt="Thumb_leica_m2"]'
+    expect(body).to have_selector 'img[alt="Thumb leica m2"]'
   end
 
   scenario 'registered user haven\'t filled the name fild when adding new gadget' do
